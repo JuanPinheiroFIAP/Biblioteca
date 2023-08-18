@@ -1,5 +1,3 @@
-
-#Sistema por tras de um biblioteca!!!
 class Biblioteca():
     def __init__(self, gerente):
         self.gerente = gerente
@@ -43,6 +41,12 @@ class Biblioteca():
         }
         self.banco_dados_usuarios.append(cliente)
         return
+    
+#-------------------------------------------------------------------------------------------------------------------------------
+
+    @property
+    def cliente(self):
+        return self.banco_dados_usuarios
         
 #-------------------------------------------------------------------------------------------------------------------------------
 
@@ -112,10 +116,10 @@ class Biblioteca():
 
 gerente = Biblioteca('Juan')
 gerente.cadastrar_cliente("Pedro", "18")
-
 gerente.cadastrar_livro("1518","Frankenstein", "1998", "Mary Shelley", "Suspense")
-gerente.cadastrar_livro("1552", "Juan", "2005", "Juan", "Romance")
+
 print(gerente.emprestar_livro("Juan", "Pedro"))
 print(gerente.devolver_livro("1518"))
 print(gerente.pesquisar_livros('genero',"Ficção"))
+print(gerente.cliente)
 
